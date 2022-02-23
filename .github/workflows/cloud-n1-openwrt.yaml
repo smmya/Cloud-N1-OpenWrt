@@ -115,8 +115,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ env.DATE }}  | N1-OpenWrt 自动编译
-        allowUpdates: true
+        name: ${{ env.DATE }} ❤️ | N1-OpenWrt 自动编译
         tag_name: ${{ env.tag_name }}
         commit: main
         body: |
