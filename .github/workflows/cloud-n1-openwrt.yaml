@@ -111,14 +111,15 @@ jobs:
         path: ${{ env.FIRMWARE }}
 
     - name: Create release
-      uses: ncipollo/release-action@v1
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         name: ${{ env.DATE }}  | N1-OpenWrt 自动编译
         allowUpdates: true
-        tag: ${{ env.tag_name }}
+        tag_name: ${{ env.tag_name }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           编译使用版本:
           ${{ env.useVersionInfo }}
-        artifacts: "${{ env.FIRMWARE }}/*"
+        files: "${{ env.FIRMWARE }}/*"
