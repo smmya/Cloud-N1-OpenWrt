@@ -1,6 +1,13 @@
 name: Cloud N1 OpenWrt
 
 on:
+ repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
   push:
     branches:
       - main
